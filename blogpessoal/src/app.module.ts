@@ -11,7 +11,7 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    /*TypeOrmModule.forRoot({
+   /* TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
@@ -20,8 +20,7 @@ import { AppController } from './app.controller';
       database: 'db_blogpessoal',
       entities: [Postagem, Tema, Usuario],
       synchronize: true,
-    
-    */
+}), */
    TypeOrmModule.forRoot({
     type: 'postgres',
     url: process.env.DATABASE_URL,
@@ -31,13 +30,13 @@ import { AppController } from './app.controller';
       rejectUnauthorized: false
     },
     synchronize: true,
-    autoLoadEntities: true
-   }),
+    autoLoadEntities: true 
+   }), 
     
     PostagemModule,
     TemaModule,
     AuthModule,
-    UsuarioModule
+    UsuarioModule 
   ],
   controllers: [AppController],
   providers: [],
